@@ -1,0 +1,17 @@
+{% if latest_entry_list %}
+     <ul>
+     {% for log in latest_entry_list %}
+          <li>{{ log.category }} -- {{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
+     {% endfor %}
+     </ul>
+{% else %}
+     <p>No polls are available.</p>
+{% endif %}
+
+
+
+<a href="/logs/search/">Search Page</a>
+<p/>
+<a href="/logs/newentry/">New Entry</a>
+<p/>
+<a href="/logs/categories/">Category Home Page</a>

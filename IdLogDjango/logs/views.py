@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
-from django.template import Context, loader, RequestContext
+from django.template import RequestContext
 from logs.models import LogEntry, Category, Relation
 
 def index(request):

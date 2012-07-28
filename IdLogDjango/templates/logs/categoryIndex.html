@@ -1,0 +1,10 @@
+{% if category_list %}
+     <ul>
+     {% for category in category_list %}
+          <li><a href="/logs/categories/categoryEntries/{{ category.categoryName }}/">{{ category.categoryName }}</a></li>
+     {% endfor %}
+     </ul>
+{% else %}
+     <p>No categories are available.</p>
+{% endif %}
+

@@ -1,0 +1,26 @@
+<h1>New Entry</h1>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+   <form action="/logs/submitEntry/" method="post">
+{% csrf_token %}
+<input type="text" name="content" id="cont" />
+<label for="cont">Enter the content of the entry</label><br />
+
+
+<select name="category" id="categ">
+{% for catg in cats %}
+    <option value="{{ catg.id }}">{{ catg.categoryName }}</option>
+{% endfor %}
+</select>
+<label for="categ">Select the category</label><br />
+
+<select multiple name="preceedings" id="prec" size="5"> 
+{% for entry in logs %}
+    <option value="{{ entry.id }}">{{ entry.content }}</option>
+{% endfor %}
+</select>
+<label for="prec">Select the preceeding entries</label><br />
+
+
+<input type="submit" value="Submit Entry" />
+</form>
+
