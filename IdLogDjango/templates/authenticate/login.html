@@ -4,7 +4,7 @@
 </p>{% endif %}
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-   <form action="/auth/recieveLogin/" method="post">
+<form action="/auth/recieveLogin/" method="post">
 {% csrf_token %}
 <input type="text" name="username" id="usern" />
 <label for="usern">Enter your user name</label><br />

@@ -1,0 +1,34 @@
+<h1>{{ poll.question }}</h1>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="/logs/searchResults/" method="post">
+{% csrf_token %}
+<select multiple name="category" id="categ" size="5">
+
+{% for catg in cats %}
+    <option value="{{ catg.id }}">{{ catg.categoryName }}</option>
+{% endfor %}
+</select>
+<label for="categ">Category (Select none for all)</label><br />
+
+<input type="text" name="keyword" id="keyw" />
+<label for="keyw">Keyword</label><br />
+
+<input type="text" name="user" id="user" />
+<label for="user">User</label><br />
+
+After:
+
+<input type="text" name="afterDate" id="month" / width="10px">
+
+Before:
+
+<input type="text" name="beforeDate" id="month" / width=10px>
+
+<label for="afterDate"> dd/mm/yyyy </label><br />
+
+<br/>
+<input type="submit" value="Search" />
+</form>
+

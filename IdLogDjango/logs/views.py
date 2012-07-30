@@ -1,11 +1,12 @@
 # Create your views here.
+from datetime import datetime
 from django.contrib import auth
+from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from logs.models import LogEntry, Category, Relation
-
 def index(request):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
@@ -25,15 +26,54 @@ def check_if_anonymous(request):
 def anonymous(request):
     return render_to_response('logs/anonymous.html', context_instance=RequestContext(request))
 
+def submitSearch(request):
+    if check_if_anonymous(request):
+        return HttpResponseRedirect(reverse('logs.views.anonymous'))
+    keyword = request.POST['keyword']
+    categories = request.POST.getlist('category')
+    username = request.POST['user']
+    user=None
+    if len(username) is not 0:
+        userList=User.objects.filter(username=username)
+        if len(userList) is 0:
+            return render_to_response('logs/searchResults.html',{'logList': None})
+        else:
+            user=userList[0] 
+    beforeDateString=request.POST['beforeDate']
+    afterDateString=request.POST['afterDate']
+    beforeDate=None
+    afterDate=None
+    if len(beforeDateString) is not 0:
+        beforeDate=datetime.strptime(beforeDateString,"%d/%m/%Y")
+    if len(afterDateString) is not 0:
+        afterDate=datetime.strptime(afterDateString,"%d/%m/%Y")
+        
+    query=LogEntry.objects.all()
+    
+    if keyword is not None:
+        query=query.filter(content__icontains=keyword)
+    if user is not None:
+        query=query.filter(user=user)
+    if len(categories) is not 0:
+        cats=Category.objects.filter(id__in = categories)      
+        query=query.filter(category__in=cats)
+    if beforeDate is not None:
+        query=query.filter(entryDate__lte=beforeDate)
+    if afterDate is not None:
+        query=query.filter(entryDate__gte=afterDate)
+     
+    return render_to_response('logs/searchResults.html',{'logList': query})   
+    #return HttpResponseRedirect(reverse('logs.views.results',args=(query,)))
+    
+        
+    
 def search(request):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
-    return HttpResponse("You're looking at the search page." )
+    
+    categories=Category.objects.all()
+    return render_to_response('logs/search.html', {'cats' : categories}, context_instance=RequestContext(request))
 
-def results(request):
-    if check_if_anonymous(request):
-        return HttpResponseRedirect(reverse('logs.views.anonymous'))
-    return HttpResponse("You're looking at the results page." )
 
 def newEntry(request):
     if check_if_anonymous(request):
@@ -58,8 +98,6 @@ def submitEntry(request):
         newRel=Relation(preceeder=prec,succeeder=newEntry)
         newRel.save(force_insert=True)
     return HttpResponseRedirect(reverse('logs.views.categoryEntries',args=(category.categoryName,)))
-
-    
 
 def categoryIndex(request):  
     if check_if_anonymous(request):
