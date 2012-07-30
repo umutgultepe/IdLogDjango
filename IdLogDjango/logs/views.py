@@ -81,10 +81,8 @@ def logUser(request):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     currUser=get_user(request)
-    userEntries=LogEntry.objects.filter(user=currUser)
+    userEntries=LogEntry.objects.filter(user=currUser,activeFlag=True)
     return render_to_response('logs/searchResults.html',{'logList': userEntries})   
-    
-    
     
 def get_user(request):
     if not hasattr(request, '_cached_user'):
@@ -103,10 +101,10 @@ def submitSearch(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     keyword = request.POST['keyword']
     categories = request.POST.getlist('category')
-    username = request.POST['user']
+    userID = request.POST['user']
     user=None
-    if len(username) is not 0:
-        userList=User.objects.filter(username=username)
+    if len(userID) is not 0:
+        userList=User.objects.filter(id=userID)
         if len(userList) is 0:
             return render_to_response('logs/searchResults.html',{'logList': None})
         else:
@@ -144,9 +142,9 @@ def submitSearch(request):
 def search(request):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
-    
+    users=User.objects.all()
     categories=Category.objects.all()
-    return render_to_response('logs/search.html', {'cats' : categories}, context_instance=RequestContext(request))
+    return render_to_response('logs/search.html', {'cats' : categories, 'users' : users}, context_instance=RequestContext(request))
 
 def newEntry(request):
     if check_if_anonymous(request):

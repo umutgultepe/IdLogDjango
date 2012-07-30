@@ -12,7 +12,6 @@
 <form action="/logs/searchResults/" method="post">
 {% csrf_token %}
 <select multiple name="category" id="categ" size="5">
-
 {% for catg in cats %}
     <option value="{{ catg.id }}">{{ catg.categoryName }}</option>
 {% endfor %}
@@ -22,8 +21,16 @@
 <input type="text" name="keyword" id="keyw" />
 <label for="keyw">Keyword</label><br />
 
-<input type="text" name="user" id="user" />
+
+
+<select name="user" id="user">
+<option value="">--All--</option>
+{% for user in users %}
+    <option value="{{ user.id }}">{{ user.username }}</option>
+{% endfor %}
+</select>
 <label for="user">User</label><br />
+
 
 After:
 
