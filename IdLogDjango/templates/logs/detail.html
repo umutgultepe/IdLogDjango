@@ -22,8 +22,12 @@
 <form action="/logs/modifyEntry/{{ entry.id }}/" method="post">
 {% csrf_token %} 
  
-<input type="text" name="content" id="cont" value={{ entry.content }} />
-<label for="cont">Enter the new content</label><br />
+
+<textarea rows="5" cols="30"  name="content">
+{{ entry.content }} 
+</textarea>
+<br/>
+
  
 <select name="category" id="categ" >
 {% for catg in cats %}

@@ -10,8 +10,12 @@
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
    <form action="/logs/submitEntry/" method="post">
 {% csrf_token %}
-<input type="text" name="content" id="cont" />
-<label for="cont">Enter the content of the entry</label><br />
+
+
+<textarea rows="10" cols="30"  name="content">
+Entry content goes here.
+</textarea>
+<br/>
 
 
 <select name="category" id="categ">
