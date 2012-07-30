@@ -5,6 +5,7 @@ from django.conf.urls import patterns, url
 urlpatterns = patterns('logs.views',
     url(r'^$', 'index'),
     url(r'^search/$', 'search'),
+    url(r'^anonymous/$', 'anonymous'),
     url(r'^newentry/$', 'newEntry'),
     url(r'^submitEntry/$', 'submitEntry'),
     url(r'^results/$', 'results'),
