@@ -31,6 +31,9 @@
 {% endfor %}
 </select>
 <label for="categ">Select the new category...</label><br />
+
+<input type="checkbox" name="active" value="Active Entry" id="active" {% if entry.activeFlag %} checked{% endif %} > 
+<label for="active">Active</label><br />
  
 <input type="submit" value="Modify Entry" />
 </form>
@@ -62,6 +65,6 @@
 
 {% endif %}
 
-<a href="/logs/deleteEntry/{{ entry.id }}/">Delete this entry</a>
+
 
 {% endblock %}

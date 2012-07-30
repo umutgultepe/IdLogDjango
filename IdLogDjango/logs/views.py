@@ -58,11 +58,15 @@ def modifyEntry(request,entryID):
     newContent=request.POST['content']
     categoryID=request.POST['category']
     category=get_object_or_404(Category, id=categoryID)
+    active=request.POST.getlist('active')
+    
     if len(newContent) is not 0:
         targetEntry.content=newContent
     
+    targetEntry.activeFlag=active
     targetEntry.category=category  
     targetEntry.save()   
+    
     return detail(request,entryID,"Entry successfully changed!")
         
 def deleteEntry(request,entryID):

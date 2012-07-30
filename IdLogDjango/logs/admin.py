@@ -33,7 +33,7 @@ class LogAdmin(admin.ModelAdmin):
         ('Active', {'fields': ['activeFlag'],'classes': ['collapse']}),       
     ]
     inlines=[PreceedingInline,SucceedingInline]
-    list_display=('content','category','user','entryDate','getPreceeders','getSucceeders')
+    list_display=('content','category','user','entryDate','getPreceeders','getSucceeders','activeFlag')
     list_filter = ['category','user']
     search_fields = ['content']
     date_hierarchy = 'entryDate'
