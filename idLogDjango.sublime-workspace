@@ -1,0 +1,334 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Http",
+				"HttpResponseRedirect"
+			],
+			[
+				"sele",
+				"selected_choice"
+			],
+			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"print",
+				"print_karatan"
+			],
+			[
+				"my",
+				"mykaratanptr"
+			],
+			[
+				"myF",
+				"myfloat"
+			],
+			[
+				"pri",
+				"print_karatan"
+			],
+			[
+				"H",
+				"Http404"
+			],
+			[
+				"get",
+				"get_object_or_404"
+			],
+			[
+				"ren",
+				"render_to_response"
+			],
+			[
+				"h",
+				"http"
+			],
+			[
+				"poll",
+				"poll_id"
+			],
+			[
+				"Cho",
+				"ChoiceInline"
+			],
+			[
+				"Ch",
+				"CharField"
+			],
+			[
+				"e",
+				"exists"
+			],
+			[
+				"downloadFile",
+				"downloadFileWithImages"
+			],
+			[
+				"link",
+				"linklist"
+			],
+			[
+				"inner",
+				"innerStart"
+			],
+			[
+				"inne",
+				"innerStart"
+			],
+			[
+				"inn",
+				"innerEnd"
+			],
+			[
+				"con",
+				"content-length"
+			],
+			[
+				"alpsa",
+				"alpsayin"
+			],
+			[
+				"alpsayin_",
+				"alpsayin_info"
+			],
+			[
+				"al",
+				"alpsayin_info"
+			],
+			[
+				"arg",
+				"arg"
+			],
+			[
+				"disable",
+				"disable_telemetry"
+			],
+			[
+				"dis",
+				"disable_tcpip_telemetry"
+			],
+			[
+				"strc",
+				"strcpy"
+			],
+			[
+				"ar",
+				"argc"
+			],
+			[
+				"tr",
+				"TR2ALP-1"
+			],
+			[
+				"tele",
+				"telemetry"
+			],
+			[
+				"uin",
+				"uint8_t"
+			],
+			[
+				"telem",
+				"telemetry_data_"
+			],
+			[
+				"teleme",
+				"telemetry_data"
+			],
+			[
+				"TR",
+				"TR2ALP-1"
+			],
+			[
+				"inc",
+				"include"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "Packages/Python/Python.sublime-build",
+	"command_palette":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/alpsayin/python/djangotut/mysite/templates/polls/base.html",
+		"/Users/alpsayin/python/djangotut/mysite/templates/polls/results.html",
+		"/Users/alpsayin/python/djangotut/mysite/templates/polls/index.html",
+		"/Users/alpsayin/python/djangotut/mysite/polls/urls.py",
+		"/Users/alpsayin/python/djangotut/mysite/polls/views.py",
+		"/Users/alpsayin/python/djangotut/mysite/mysite/urls.py",
+		"/Users/alpsayin/python/djangotut/mysite/mysite/settings.py",
+		"/Users/alpsayin/python/djangotut/mysite/templates/polls/detail.html",
+		"/Users/alpsayin/karatanc/Makefile",
+		"/Users/alpsayin/karatanc/main.cpp",
+		"/Users/alpsayin/karatanc/main.h",
+		"/Users/alpsayin/python/djangotut/mysite/polls/index.html",
+		"/Users/alpsayin/python/djangotut/mysite/templates/404.html",
+		"/Users/alpsayin/python/djangotut/mysite/templates/admin/base_site.html",
+		"/Users/alpsayin/python/djangotut/mysite/polls/admin.py",
+		"/Users/alpsayin/python/djangotut/mysite/polls/models.py",
+		"/Users/alpsayin/python/idLog/the_world_is_flat.py",
+		"/Users/alpsayin/python/the_world_is_flat.py",
+		"/Users/alpsayin/kth-wsn-longrange-radio-uplink-read-only/radiotftp_process/radiotftp.c",
+		"/private/var/folders/Te/TeetB4EcH1mSJ51LqKEtIE+++TI/-Tmp-/fz3temp-1/menu.html",
+		"/Users/alpsayin/lwip/contrib/apps/tcpecho_raw/echo.c",
+		"/private/var/folders/Te/TeetB4EcH1mSJ51LqKEtIE+++TI/-Tmp-/fz3temp-1/update_log.html",
+		"/Users/alpsayin/aprx-2.01.svn422/telemetry.c",
+		"/Users/alpsayin/Desktop/telemetryit/telemetry.h",
+		"/Users/alpsayin/Desktop/telemetryit/telemetry.c",
+		"/Users/alpsayin/Desktop/telemetryit/Makefile",
+		"/Users/alpsayin/Desktop/telemetryit/main.c",
+		"/Users/alpsayin/Desktop/telemetryit/util.c",
+		"/Users/alpsayin/Desktop/rssi.log",
+		"/Volumes/BOOTCAMP/Users/Alp Sayin/Documents/master thesis/uhx1_pretender.cpp",
+		"/Users/alpsayin/Desktop/FZCalc/index.html",
+		"/Users/alpsayin/Desktop/index.html",
+		"/private/var/folders/Te/TeetB4EcH1mSJ51LqKEtIE+++TI/-Tmp-/fz3temp-1/weekly_report-08072012.html",
+		"/private/var/folders/Te/TeetB4EcH1mSJ51LqKEtIE+++TI/-Tmp-/fz3temp-1/weekly_report-01072012.html",
+		"/Volumes/BOOTCAMP/Users/Alp Sayin/Documents/master thesis/data to collect",
+		"/Users/alpsayin/Desktop/data to collect",
+		"/Users/alpsayin/Desktop/maximiles",
+		"/Users/alpsayin/kth-wsn-longrange-radio-uplink-read-only/project_radiotftp/radiotftp.c",
+		"/Users/alpsayin/sensors.dat",
+		"/Users/alpsayin/Downloads/soundmodem.conf.conf",
+		"/private/var/folders/Te/TeetB4EcH1mSJ51LqKEtIE+++TI/-Tmp-/fz3temp-1/kth-format-thesis_proposal_v2_rev2.htm",
+		"/private/var/folders/Te/TeetB4EcH1mSJ51LqKEtIE+++TI/-Tmp-/fz3temp-1/index.html"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"debug",
+			"Django",
+			"b",
+			"a",
+			"int",
+			" buf",
+			"uint8_t* buf",
+			" buf",
+			"buf"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"B",
+			"A",
+			"uint8_t"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}
