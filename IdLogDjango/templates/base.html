@@ -13,6 +13,9 @@
 	
 	
     <title>{% block title %}IdLog- Django verion By G{% endblock %}</title>
+    
+    
+    {% block additionalScripts %} {% endblock %}
 </head>
 <body id= {% block bodyID %} "page1"   {% endblock %}>
 	
@@ -40,16 +43,18 @@
 		<div class="main">
 			<footer>
 				{% block footer %}
-			    <hr>
-			    <div class="col_2 pad_left1">
-								<h3>Designed By</h3>
-								<div class="wrapper">
-			    
-			   		 <h1>G</h1>
-			   		 </div>
+			    <div class="col_1 pad_left1">
+								<h3>Designed By G</h3>
+								
+				</div>
+				<div class="col_1 pad_left1">
+				{% block footerColumn2 %}
+				
+				
+				{% endblock %}
 				</div>
 			    {% endblock %}
-    
+   				 
     
     		</footer>
 		</div>

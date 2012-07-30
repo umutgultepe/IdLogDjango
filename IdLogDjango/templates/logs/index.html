@@ -1,5 +1,16 @@
 {% extends "logs/base.html" %}
 
+{% block additionalScripts %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.tablesorter.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() 
+	    { 
+	        $("#entries").tablesorter(); 
+	    } 
+	);
+	</script> 
+{% endblock %}
+
 
 {% block title %}Welcome to IDLog{% endblock %}
 {% block header %}Welcome to IDLog{% endblock %}
@@ -11,11 +22,31 @@
 <li><strong> Latest Entries: </strong></li>
 </ul>
 {% if latest_entry_list %}
-     <ul class="list3">
-     {% for log in latest_entry_list %}
-          <li><a href="/logs/entry/{{ log.id }}/">In {{ log.category }} : {{ log.content }}  at {{ log.entryDate }}  by {{log.user}}</a></li>
-     {% endfor %}
-     </ul>
+	<table id="entries" class="tablesorter"> 
+	<thead> 
+	<tr> 
+	    <th>Category</th> 
+	    <th>Content</th> 
+	    <th>Entry Date</th> 
+	    <th>User</th> 
+	</tr> 
+	</thead> 
+	<tbody> 
+
+
+    
+    {% for log in latest_entry_list %}
+	<tr>
+		<td>{{ log.category }}</td>  
+	    <td><a href="/logs/entry/{{ log.id }}/">{{ log.content }}</a></td> 
+	    <td width=220px>{{ log.entryDate }}</td> 
+	    <td>{{log.user}}</td> 
+	</tr> 
+	{% endfor %}
+    
+	
+	</tbody> 
+	</table> 
 {% else %}
      <p>No entries are available.</p>
 {% endif %}

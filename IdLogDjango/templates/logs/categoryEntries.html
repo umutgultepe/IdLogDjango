@@ -1,5 +1,15 @@
 {% extends "logs/base.html" %}
 
+{% block additionalScripts %}
+	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.tablesorter.js"></script> 
+	<script type="text/javascript">
+	$(document).ready(function() 
+	    { 
+	        $("#categories").tablesorter(); 
+	    } 
+	);
+	</script> 
+{% endblock %}
 
 {% block title %}Entries for {{ catName }} category{% endblock %}
 {% block header %}Entries for {{ catName }} category{% endblock %}
@@ -8,11 +18,30 @@
 {% block content %}
 <br/>
 {% if logList %}
-     <ul class="list3">
-     {% for log in logList %}
-          <li><a href="/logs/entry/{{ log.id }}/">{{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
-     {% endfor %}
-     </ul>
+	<table id="categories" class="tablesorter"> 
+	<thead> 
+	<tr> 
+	    <th>Content</th> 
+	    <th>Date</th> 
+	    <th>User</th> 
+	</tr> 
+	</thead> 
+	<tbody> 	
+	{% for log in logList %}
+	<tr> 
+	    <td><a href="/logs/entry/{{ log.id }}/">{{ log.content }}</a></td> 
+	    <td width=220px>{{ log.entryDate }}</td> 
+	    <td>{{log.user}}</td> 
+	</tr> 
+	{% endfor %}
+	
+	
+	</tbody> 
+	</table> 
+
+	 
+	
+	
 {% else %}
      <p>No entries are available.</p>
 {% endif %}
