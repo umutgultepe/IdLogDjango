@@ -3,7 +3,7 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-STATIC_BASE_DIRECTORY='/Users/alpsayin/python/'
+STATIC_BASE_DIRECTORY='/home/umut/git/'
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
