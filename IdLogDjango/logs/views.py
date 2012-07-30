@@ -77,6 +77,15 @@ def deleteEntry(request,entryID):
     targetEntry.save()   
     return HttpResponseRedirect(reverse('logs.views.index'))
     
+def logUser(request):
+    if check_if_anonymous(request):
+        return HttpResponseRedirect(reverse('logs.views.anonymous'))
+    currUser=get_user(request)
+    userEntries=LogEntry.objects.filter(user=currUser)
+    return render_to_response('logs/searchResults.html',{'logList': userEntries})   
+    
+    
+    
 def get_user(request):
     if not hasattr(request, '_cached_user'):
         request._cached_user = auth.get_user(request)

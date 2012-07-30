@@ -10,7 +10,7 @@
 {% if logList %}
      <ul>
      {% for log in logList %}
-          <li>{{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
+          <li><a href="/logs/entry/{{ log.id }}">  {{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
      {% endfor %}
      </ul>
 {% else %}
