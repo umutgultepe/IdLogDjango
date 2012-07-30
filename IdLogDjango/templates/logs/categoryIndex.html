@@ -1,3 +1,11 @@
+{% extends "logs/base.html" %}
+
+
+{% block title %}Category Index{% endblock %}
+{% block header %}List of Categories{% endblock %}
+
+{% block content %}
+
 {% if category_list %}
      <ul>
      {% for category in category_list %}
@@ -7,4 +15,9 @@
 {% else %}
      <p>No categories are available.</p>
 {% endif %}
+
+<a href="/logs/categories/newCategory/">Add new category</a>
+
+{% endblock %}
+
 

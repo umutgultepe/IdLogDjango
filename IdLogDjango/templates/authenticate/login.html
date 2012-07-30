@@ -1,4 +1,12 @@
-<h1>Log In</h1>
+{% extends "base.html" %}
+
+
+{% block title %}Log In{% endblock %}
+{% block header %}Log In{% endblock %}
+
+
+{% block content %}
+
 {% if additional_message %}
 	<p><strong>{{ additional_message }}</strong>
 </p>{% endif %}
@@ -15,3 +23,4 @@
 <input type="submit" value="Log In" />
 </form>
 
+{% endblock %}

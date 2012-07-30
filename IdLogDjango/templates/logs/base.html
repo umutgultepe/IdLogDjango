@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block navigationBar %} 
+
+<div id="header">
+  <ul id="nav-global">
+    <li id="nav-log-index"><a href="/logs/">Homepage</a></li>
+    <li id="nav-category-index"><a href="/logs/categories/">Categories</a></li>
+    <li id="nav-new-entry"><a href="/logs/newentry/">New Entry</a></li>
+    <li id="nav-search"><a href="/logs/search/">Search</a></li>
+    <li id="nav-logout"><a href="/auth/logout/">Logout</a></li>
+  </ul>
+</div>
+
+{% if additionalInfo %} {{ additionalInfo }}  {% endif %}
+{% endblock %}
+
+
+   

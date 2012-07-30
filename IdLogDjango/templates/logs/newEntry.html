@@ -1,4 +1,12 @@
-<h1>New Entry</h1>
+{% extends "logs/base.html" %}
+
+
+{% block title %}New Category{% endblock %}
+{% block header %}New Category{% endblock %}
+
+
+{% block content %}
+
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
    <form action="/logs/submitEntry/" method="post">
 {% csrf_token %}
@@ -11,7 +19,11 @@
     <option value="{{ catg.id }}">{{ catg.categoryName }}</option>
 {% endfor %}
 </select>
-<label for="categ">Select the category</label><br />
+<label for="categ">Select the category...</label><br />
+
+Or add a new one: <input type="text" name="newCategory" id="newCategory" />
+<label for="categ">(will override category drop-down menu)</label><br />
+
 
 <select multiple name="preceedings" id="prec" size="5"> 
 {% for entry in logs %}
@@ -24,3 +36,4 @@
 <input type="submit" value="Submit Entry" />
 </form>
 
+{% endblock %}

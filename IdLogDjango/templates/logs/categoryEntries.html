@@ -1,10 +1,19 @@
+{% extends "logs/base.html" %}
+
+
+{% block title %}Category Entries{% endblock %}
+{% block header %}Category Entries{% endblock %}
+
+
+{% block content %}
 {% if logList %}
      <ul>
      {% for log in logList %}
-          <li>{{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
+          <li><a href="/logs/entry/{{ log.id }}/">{{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
      {% endfor %}
      </ul>
 {% else %}
      <p>No entries are available.</p>
 {% endif %}
 
+{% endblock %}

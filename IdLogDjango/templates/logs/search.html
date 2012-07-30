@@ -1,4 +1,11 @@
-<h1>{{ poll.question }}</h1>
+{% extends "logs/base.html" %}
+
+
+{% block title %}Search{% endblock %}
+{% block header %}Search Entries{% endblock %}
+
+
+{% block content %}
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
@@ -32,3 +39,4 @@ Before:
 <input type="submit" value="Search" />
 </form>
 
+{% endblock %}
