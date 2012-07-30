@@ -1,18 +1,36 @@
 {% extends "base.html" %}
 
 {% block navigationBar %} 
-
-<div id="header">
-  <ul id="nav-global">
-    <li id="nav-log-index"><a href="/logs/">Homepage</a></li>
-    <li id="nav-user-index"><a href="/logs/logUser/">My Entries</a></li>
-    <li id="nav-category-index"><a href="/logs/categories/">Categories</a></li>
-    <li id="nav-new-entry"><a href="/logs/newentry/">New Entry</a></li>
-    <li id="nav-search"><a href="/logs/search/">Search</a></li>
-    <li id="nav-logout"><a href="/auth/logout/">Logout</a></li>
-  </ul>
-</div>
-
+	<div class="body1">
+		<div class="body2">
+			<div class="main">
+	<!-- header -->
+			<header>
+				<div class="wrapper">
+					<div class="right">
+						<nav>
+							<ul id="top_nav">
+								<li><a href="/auth/logout/">Log Out</a></li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+				<nav id="menu">
+					<ul>
+						<li class="nav1" id="active"><a href="/logs/">Home</a></li>
+						<li class="nav2"><a href="/logs/logUser/">My Entries</a></li>
+						<li class="nav3"><a href="/logs/categories/">Categories</a></li>
+						<li class="nav4"><a href="/logs/newentry/">New Entry</a></li>
+						<li class="nav5"><a href="/logs/search/">Search</a></li>
+					</ul>
+				</nav>
+	
+				
+			</header>
+			</div>
+		</div>
+	</div>
+	<!-- / header -->
 {% if additionalInfo %} {{ additionalInfo }}  {% endif %}
 {% endblock %}
 

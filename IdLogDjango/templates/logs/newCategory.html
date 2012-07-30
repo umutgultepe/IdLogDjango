@@ -3,18 +3,18 @@
 
 {% block title %}New Category{% endblock %}
 {% block header %}Add New Category{% endblock %}
-
+<br/>
 
 {% block content %}
-
+<br/>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form action="/logs/categories/submitCategory/" method="post">
+<form id="Form" action="/logs/categories/submitCategory/" method="post">
 {% csrf_token %}
 <input type="text" name="categoryName" id="categoryName" />
 <label for="categoryName">Enter the new category Name</label><br />
 
 
-<input type="submit" value="Submit" />
+<input type="submit" class="button" value="Submit" />
 </form>
 
 {% endblock %}

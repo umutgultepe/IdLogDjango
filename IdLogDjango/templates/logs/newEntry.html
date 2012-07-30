@@ -6,17 +6,18 @@
 
 
 {% block content %}
-
+<br/>
+<br/>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-   <form action="/logs/submitEntry/" method="post">
+   <form id="Form" action="/logs/submitEntry/" method="post">
 {% csrf_token %}
 
-
-<textarea rows="10" cols="30"  name="content">
-Entry content goes here.
-</textarea>
-<br/>
-
+<div  class="textarea_box">
+	<div class="bg">
+		<textarea rows="10" cols="30"  name="content">Entry content goes here.</textarea>
+		<br/>
+	</div>
+</div>
 
 <select name="category" id="categ">
 {% for catg in cats %}
@@ -25,7 +26,7 @@ Entry content goes here.
 </select>
 <label for="categ">Select the category...</label><br />
 
-Or add a new one: <input type="text" name="newCategory" id="newCategory" />
+...or add a new one: <input type="text" name="newCategory" id="newCategory" />
 <label for="categ">(will override category drop-down menu)</label><br />
 
 
@@ -37,7 +38,7 @@ Or add a new one: <input type="text" name="newCategory" id="newCategory" />
 <label for="prec">Select the preceeding entries</label><br />
 
 
-<input type="submit" value="Submit Entry" />
+<input class="button" type="submit" value="Submit Entry" />
 </form>
 
 {% endblock %}

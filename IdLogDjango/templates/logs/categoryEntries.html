@@ -6,8 +6,9 @@
 
 
 {% block content %}
+<br/>
 {% if logList %}
-     <ul>
+     <ul class="list3">
      {% for log in logList %}
           <li><a href="/logs/entry/{{ log.id }}/">{{ log.content }}  -- {{ log.entryDate }}  -- {{log.user}}</a></li>
      {% endfor %}

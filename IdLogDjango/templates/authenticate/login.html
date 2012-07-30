@@ -6,13 +6,17 @@
 
 
 {% block content %}
-
+<br/>
+	<br/>
 {% if additional_message %}
 	<p><strong>{{ additional_message }}</strong>
+
+	<br/>
 </p>{% endif %}
 
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
-<form action="/auth/recieveLogin/" method="post">
+<form id="Form" action="/auth/recieveLogin/" method="post">
+<br/>
 {% csrf_token %}
 <input type="text" name="username" id="usern" />
 <label for="usern">Enter your user name</label><br />
@@ -20,7 +24,7 @@
 <input type="password" name="pword" id="pass" />
 <label for="pass">Enter your password</label><br />
 
-<input type="submit" value="Log In" />
+<input type="submit" class="button" value="Log In" />
 </form>
 
 {% endblock %}

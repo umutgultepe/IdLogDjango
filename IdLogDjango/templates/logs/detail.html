@@ -6,52 +6,31 @@
 
 {% block content %}
 
-
-
-<ul>
-
-<li>Belongs in  : <a href="/logs/categories/categoryEntries/{{ entry.category }}">{{ entry.category }}</a></li>
-<li>Content		: {{ entry.content }}</li>
-<li>Entry date  : {{ entry.entryDate }}</li>
-<li>User		: {{ entry.user }}</li>
-<li>Is Active?	: {{ entry.activeFlag }}</li>
- </ul>
- 
- <h3> Entry modification</h3>
- 
-<form action="/logs/modifyEntry/{{ entry.id }}/" method="post">
-{% csrf_token %} 
- 
-
-<textarea rows="5" cols="30"  name="content">
-{{ entry.content }} 
-</textarea>
 <br/>
+<br/>
+<ul class="list2">
 
- 
-<select name="category" id="categ" >
-{% for catg in cats %}
-    <option value="{{ catg.id }}"     {% if catg.categoryName == entry.category.categoryName %} selected= "selected"  {% endif %} >{{ catg.categoryName }}</option>
-{% endfor %}
-</select>
-<label for="categ">Select the new category...</label><br />
-<input type="checkbox" name="active" value="Active Entry" id="active" {% if entry.activeFlag %} checked{% endif %} > 
-<label for="active">Active</label><br />
- 
-<input type="submit" value="Modify Entry" />
-</form>
+	<li>Belongs in  : <a href="/logs/categories/categoryEntries/{{ entry.category }}">{{ entry.category }}</a></li>
+	<li>Content		: {{ entry.content }}</li>
+	<li>Entry date  : {{ entry.entryDate }}</li>
+	<li>User		: {{ entry.user }}</li>
+	<li>Is Active?	: {{ entry.activeFlag }}</li>
+</ul>
+
+
+<br/>
 
 
 {% if preceeders %}
 	
 	<h2>Preceeding Entries:</h2>
 	
-	<ul>
+	<ul class="list1">
      {% for prec in preceeders %}
           <li><a href="/logs/entry/{{ prec.id }}/"> {{ prec.content }}  at {{ prec.entryDate }}  by {{prec.user}}  </a> {% if not prec.activeFlag %}<strong> (DELETED) </strong>{% endif %}</li>
      {% endfor %}
     </ul>
-
+	<br/>
 
 {% endif %}
 
@@ -59,7 +38,7 @@
 	
 	<h2>Succeeding Entries:</h2>
 	
-	<ul>
+	<ul class="list1">
      {% for prec in succeeders %}
           <li><a href="/logs/entry/{{ prec.id }}/"> {{ prec.content }}  at {{ prec.entryDate }}  by {{prec.user}} </a> {% if not prec.activeFlag %} <strong> (DELETED)  </strong>{% endif %}</li>
      {% endfor %}
@@ -67,19 +46,59 @@
 
 
 {% endif %}
-
-<h2>Add a follow up to this entry:</h2>
-
-<form action="/logs/submitEntry/" method="post">
-{% csrf_token %}
-<textarea rows="5" cols="30"  name="content">
-Entry your follow up entry.
-</textarea>
 <br/>
+<ul class="list2">
+<li><strong> Add a follow up to this entry: </strong></li>
+</ul>
+<form id="Form" action="/logs/submitEntry/" method="post">
+{% csrf_token %}
+<div  class="textarea_box">
+	<div class="bg">
+		<textarea rows="5" cols="30"  name="content">Entry your follow up entry.</textarea>
+	</div>
+</div>		
 <input type="hidden" name="category" id="categ" readonly="readonly" value = {{ entry.category.id }} />
 <input type="hidden" name="preceedings" id="prec" readonly="readonly" value = {{ entry.id }} />
 <input type="hidden" name="newCategory" id="prec" readonly="readonly" value = "" />
-<input type="submit" value="Submit Entry" />
+<input type="submit" class="button" value="Submit Entry" />
+
 </form>
+<br/>
+<br/>
+<br/>
+
+			<div class="main">
+				<div class="wrapper">
+					<ul class="list2">
+					<li><strong> Entry modification </strong></li>
+					</ul>
+
+					 
+					<form id="Form" action="/logs/modifyEntry/{{ entry.id }}/" method="post">
+					{% csrf_token %} 
+					<div  class="textarea_box">
+						<div class="bg">
+						<textarea rows="5" cols="30"  name="content">{{ entry.content }}</textarea>
+						<br/>
+						</div>
+					</div>
+					 
+					<select name="category" id="categ" >
+					{% for catg in cats %}
+					    <option value="{{ catg.id }}"     {% if catg.categoryName == entry.category.categoryName %} selected= "selected"  {% endif %} >{{ catg.categoryName }}</option>
+					{% endfor %}
+					</select>
+					<label for="categ">Select the new category...</label><br />
+					<input type="checkbox" name="active" value="Active Entry" id="active" {% if entry.activeFlag %} checked{% endif %} > 
+					<label for="active">Active</label><br />
+					 
+					<input type="submit" class="button" value="Modify Entry" />
+					</form>
+
+			</div>
+		</div>
+
+
+<!-- ENTRY MODIFICATION -->
 
 {% endblock %}

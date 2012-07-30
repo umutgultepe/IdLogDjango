@@ -6,10 +6,11 @@
 
 
 {% block content %}
-
+<br/>
+<br/>
 {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
 
-<form action="/logs/searchResults/" method="post">
+<form id="Form" action="/logs/searchResults/" method="post">
 {% csrf_token %}
 <select multiple name="category" id="categ" size="5">
 {% for catg in cats %}
@@ -43,7 +44,7 @@ Before:
 <label for="afterDate"> dd/mm/yyyy </label><br />
 
 <br/>
-<input type="submit" value="Search" />
+<input type="submit" class="button" value="Search" />
 </form>
 
 {% endblock %}

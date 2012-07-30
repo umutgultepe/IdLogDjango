@@ -12,7 +12,7 @@ def index(request,additionalInfo=None):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     latest_entry_list = LogEntry.objects.filter(activeFlag=True).order_by('-entryDate')[:5]
-    return render_to_response('logs/index.html',{'latest_entry_list': latest_entry_list , 'additionalInfo': additionalInfo})
+    return render_to_response('logs/index.html',{'latest_entry_list': latest_entry_list , 'additionalInfo': additionalInfo} ,context_instance=RequestContext(request))
 
 def detail(request,entryID,add=None):
     if check_if_anonymous(request):
@@ -82,7 +82,7 @@ def logUser(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     currUser=get_user(request)
     userEntries=LogEntry.objects.filter(user=currUser,activeFlag=True)
-    return render_to_response('logs/searchResults.html',{'logList': userEntries})   
+    return render_to_response('logs/searchResults.html',{'logList': userEntries},context_instance=RequestContext(request))   
     
 def get_user(request):
     if not hasattr(request, '_cached_user'):
@@ -106,7 +106,7 @@ def submitSearch(request):
     if len(userID) is not 0:
         userList=User.objects.filter(id=userID)
         if len(userList) is 0:
-            return render_to_response('logs/searchResults.html',{'logList': None})
+            return render_to_response('logs/searchResults.html',{'logList': None},context_instance=RequestContext(request))
         else:
             user=userList[0] 
     beforeDateString=request.POST['beforeDate']
@@ -136,7 +136,7 @@ def submitSearch(request):
     if afterDate is not None:
         query=query.filter(entryDate__gte=afterDate)
      
-    return render_to_response('logs/searchResults.html',{'logList': query})   
+    return render_to_response('logs/searchResults.html',{'logList': query},context_instance=RequestContext(request))   
     #return HttpResponseRedirect(reverse('logs.views.results',args=(query,)))
            
 def search(request):
@@ -197,7 +197,7 @@ def categoryIndex(request):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))  
     category_list=Category.objects.all().order_by('categoryName')
-    return render_to_response('logs/categoryIndex.html',{'category_list': category_list})
+    return render_to_response('logs/categoryIndex.html',{'category_list': category_list},context_instance=RequestContext(request))
     # return HttpResponse("You're looking at the category index page." )
 
 def categoryEntries(request,categoryName,additionalInfo=None):
@@ -205,7 +205,7 @@ def categoryEntries(request,categoryName,additionalInfo=None):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))    
     cat_id=get_object_or_404(Category,categoryName=categoryName).id
     logList=LogEntry.objects.filter(category=cat_id,activeFlag=True).order_by('entryDate')
-    return render_to_response('logs/categoryEntries.html',{'logList': logList, 'catName': categoryName, 'additionalInfo' : additionalInfo})
+    return render_to_response('logs/categoryEntries.html',{'logList': logList, 'catName': categoryName, 'additionalInfo' : additionalInfo},context_instance=RequestContext(request))
 
 def newCategory(request):
     if check_if_anonymous(request):

@@ -5,11 +5,13 @@
 {% block header %}Welcome to IDLog{% endblock %}
 
 {% block content %}
-
-<h2>Latest Entries:</h2>
-
+<br>
+<br>
+<ul class="list2">
+<li><strong> Latest Entries: </strong></li>
+</ul>
 {% if latest_entry_list %}
-     <ul>
+     <ul class="list3">
      {% for log in latest_entry_list %}
           <li><a href="/logs/entry/{{ log.id }}/">In {{ log.category }} : {{ log.content }}  at {{ log.entryDate }}  by {{log.user}}</a></li>
      {% endfor %}
