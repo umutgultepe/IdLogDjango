@@ -72,8 +72,10 @@
 
 <form action="/logs/submitEntry/" method="post">
 {% csrf_token %}
-<input type="text" name="content" id="cont" />
-<label for="cont">Enter the content of the entry</label><br />
+<textarea rows="5" cols="30"  name="content">
+Entry your follow up entry.
+</textarea>
+<br/>
 <input type="hidden" name="category" id="categ" readonly="readonly" value = {{ entry.category.id }} />
 <input type="hidden" name="preceedings" id="prec" readonly="readonly" value = {{ entry.id }} />
 <input type="hidden" name="newCategory" id="prec" readonly="readonly" value = "" />
