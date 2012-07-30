@@ -31,7 +31,6 @@
 {% endfor %}
 </select>
 <label for="categ">Select the new category...</label><br />
-
 <input type="checkbox" name="active" value="Active Entry" id="active" {% if entry.activeFlag %} checked{% endif %} > 
 <label for="active">Active</label><br />
  
@@ -65,6 +64,16 @@
 
 {% endif %}
 
+<h2>Add a follow up to this entry:</h2>
 
+<form action="/logs/submitEntry/" method="post">
+{% csrf_token %}
+<input type="text" name="content" id="cont" />
+<label for="cont">Enter the content of the entry</label><br />
+<input type="hidden" name="category" id="categ" readonly="readonly" value = {{ entry.category.id }} />
+<input type="hidden" name="preceedings" id="prec" readonly="readonly" value = {{ entry.id }} />
+<input type="hidden" name="newCategory" id="prec" readonly="readonly" value = "" />
+<input type="submit" value="Submit Entry" />
+</form>
 
 {% endblock %}

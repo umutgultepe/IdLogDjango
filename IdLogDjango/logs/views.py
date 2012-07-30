@@ -14,12 +14,6 @@ def index(request,additionalInfo=None):
     latest_entry_list = LogEntry.objects.filter(activeFlag=True).order_by('-entryDate')[:5]
     return render_to_response('logs/index.html',{'latest_entry_list': latest_entry_list , 'additionalInfo': additionalInfo})
 
-
-
-    
-    
-
-
 def detail(request,entryID,add=None):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
@@ -162,8 +156,13 @@ def submitEntry(request):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     content = request.POST['content']
-    newCategory=request.POST['newCategory']
-    
+    #===========================================================================
+    # newCategoryList=request.POST.getlist('newCategory')
+    # newCategory=""
+    # if len(newCategoryList) is not 0:
+    #    newCategory=newCategoryList[0]
+    #===========================================================================
+    newCategory=  request.POST['newCategory']    
     preceedings = request.POST.getlist('preceedings')
     preceedingList=[]
     for item in preceedings:
