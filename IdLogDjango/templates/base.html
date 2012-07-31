@@ -4,6 +4,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/layout.css" media="screen" />
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/reset.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jq.css" media="screen" />
 	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.4.2.js" ></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}js/cufon-yui.js"></script>
 	<script type="text/javascript" src="{{ STATIC_URL }}js/cufon-replace.js"></script>  
@@ -17,7 +18,7 @@
     
     {% block additionalScripts %} {% endblock %}
 </head>
-<body id= {% block bodyID %} "page1"   {% endblock %}>
+<body >
 	
 	{% block navigationBar %} {% endblock %}
 
@@ -40,24 +41,28 @@
 	</div>
 <div class="body8">	
 	<div class="body9">
-		<div class="main">
+	
 			<footer>
+				<div class="main">
 				{% block footer %}
 			    <div class="col_1 pad_left1">
 								<h3>Designed By G</h3>
 								
 				</div>
-				<div class="col_1 pad_left1">
+			
+				 <div class="col_2 pad_left1">
 				{% block footerColumn2 %}
 				
-				
+					
 				{% endblock %}
 				</div>
+
+				
 			    {% endblock %}
    				 
-    
+    			</div>
     		</footer>
-		</div>
+		
 		<!-- / footer -->
 	</div>
 </div>	

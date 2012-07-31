@@ -12,7 +12,8 @@ def index(request,additionalInfo=None):
     if check_if_anonymous(request):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     latest_entry_list = LogEntry.objects.filter(activeFlag=True).order_by('-entryDate')[:5]
-    return render_to_response('logs/index.html',{'latest_entry_list': latest_entry_list , 'additionalInfo': additionalInfo} ,context_instance=RequestContext(request))
+    categories=Category.objects.all()
+    return render_to_response('logs/index.html',{'latest_entry_list': latest_entry_list , 'additionalInfo': additionalInfo, 'categories': categories} ,context_instance=RequestContext(request))
 
 def detail(request,entryID,add=None):
     if check_if_anonymous(request):
@@ -205,7 +206,7 @@ def categoryEntries(request,categoryName,additionalInfo=None):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))    
     cat_id=get_object_or_404(Category,categoryName=categoryName).id
     logList=LogEntry.objects.filter(category=cat_id,activeFlag=True).order_by('entryDate')
-    return render_to_response('logs/categoryEntries.html',{'logList': logList, 'catName': categoryName, 'additionalInfo' : additionalInfo},context_instance=RequestContext(request))
+    return render_to_response('logs/categoryEntries.html',{'logList': logList, 'catName': categoryName, 'catID': cat_id, 'additionalInfo' : additionalInfo},context_instance=RequestContext(request))
 
 def newCategory(request):
     if check_if_anonymous(request):

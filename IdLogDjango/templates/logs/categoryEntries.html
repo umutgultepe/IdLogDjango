@@ -47,3 +47,26 @@
 {% endif %}
 
 {% endblock %}
+
+{% block footerColumn2 %}
+
+<form id="Form" action="/logs/submitEntry/" method="post">
+{% csrf_token %}
+<div  class="textarea_box">
+	<div class="bg">
+		<textarea rows="5" cols="50"  name="content"  onclick="this.value = ''">Add a new entry to this category.</textarea>
+	</div>
+</div>		
+<select multiple name="preceedings" id="prec" size="5"> 
+{% for entry in logList %}
+    <option value="{{ entry.id }}">{{ entry.content }}</option>
+{% endfor %}
+</select>
+<label for="prec">Preceeding entries</label><br />
+<input type="hidden" name="category" id="categ" readonly="readonly" value = {{ catID }} />
+<input type="hidden" name="newCategory" id="prec" readonly="readonly" value = "" />
+<input type="submit" class="button" value="Submit Entry" />
+
+</form>
+
+{% endblock %}

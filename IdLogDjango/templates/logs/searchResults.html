@@ -21,7 +21,8 @@
 {% if logList %}
 	<table id="categories" class="tablesorter"> 
 	<thead> 
-	<tr> 
+	<tr>
+		<th>Category</th>  
 	    <th>Content</th> 
 	    <th>Date</th> 
 	    <th>User</th> 
@@ -30,6 +31,7 @@
 	<tbody> 	
 	{% for log in logList %}
 	<tr> 
+		<td><a href="/logs/categories/categoryEntries/{{ log.category.categoryName }}/">{{ log.category }}</a></td> 
 	    <td><a href="/logs/entry/{{ log.id }}/">{{ log.content }}</a></td> 
 	    <td width=220px>{{ log.entryDate }}</td> 
 	    <td>{{log.user}}</td> 

@@ -37,7 +37,7 @@
     
     {% for log in latest_entry_list %}
 	<tr>
-		<td>{{ log.category }}</td>  
+		<td><a href="/logs/categories/categoryEntries/{{ log.category.categoryName }}/">{{ log.category }}</a></td>  
 	    <td><a href="/logs/entry/{{ log.id }}/">{{ log.content }}</a></td> 
 	    <td width=220px>{{ log.entryDate }}</td> 
 	    <td>{{log.user}}</td> 
@@ -53,5 +53,29 @@
 
 
 
+
+{% endblock %}
+
+
+{% block footerColumn2 %}
+
+<form id="Form" action="/logs/submitEntry/" method="post">
+{% csrf_token %}
+<div  class="textarea_box">
+	<div class="bg">
+		<textarea rows="5" cols="50"  name="content"  onclick="this.value = ''">Quick Entry.</textarea>
+	</div>
+</div>		
+<select name="category" id="categ">
+{% for catg in categories %}
+    <option value="{{ catg.id }}">{{ catg.categoryName }}</option>
+{% endfor %}
+</select>
+<label for="categ">Select the category</label><br />
+
+<input type="hidden" name="newCategory" id="prec" readonly="readonly" value = "" />
+<input type="submit" class="button" value="Submit Entry" />
+
+</form>
 
 {% endblock %}
