@@ -29,7 +29,7 @@
 	<tbody> 	
 	{% for log in logList %}
 	<tr> 
-	    <td><a href="/logs/entry/{{ log.id }}/">{{ log.content }}</a></td> 
+	    <td><a href="/logs/entry/{{ log.id }}/">{{ log.content|linebreaks  }}</a></td> 
 	    <td width=220px>{{ log.entryDate }}</td> 
 	    <td>{{log.user}}</td> 
 	</tr> 

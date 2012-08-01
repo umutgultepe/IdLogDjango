@@ -11,7 +11,7 @@
 <ul class="list2">
 
 	<li>Belongs in  : <a href="/logs/categories/categoryEntries/{{ entry.category }}">{{ entry.category }}</a></li>
-	<li>Content		: {{ entry.content }}</li>
+	<li>Content		: {{ entry.content|linebreaks  }}</li>
 	<li>Entry date  : {{ entry.entryDate }}</li>
 	<li>User		: {{ entry.user }}</li>
 	<li>Is Active?	: {{ entry.activeFlag }}</li>
@@ -27,7 +27,7 @@
 	
 	<ul class="list1">
      {% for prec in preceeders %}
-          <li><a href="/logs/entry/{{ prec.id }}/"> {{ prec.content }}  at {{ prec.entryDate }}  by {{prec.user}}  </a> {% if not prec.activeFlag %}<strong> (DELETED) </strong>{% endif %}</li>
+          <li><a href="/logs/entry/{{ prec.id }}/"> {{ prec.content|linebreaks  }}  at {{ prec.entryDate }}  by {{prec.user}}  </a> {% if not prec.activeFlag %}<strong> (DELETED) </strong>{% endif %}</li>
      {% endfor %}
     </ul>
 	<br/>
@@ -40,7 +40,7 @@
 	
 	<ul class="list1">
      {% for prec in succeeders %}
-          <li><a href="/logs/entry/{{ prec.id }}/"> {{ prec.content }}  at {{ prec.entryDate }}  by {{prec.user}} </a> {% if not prec.activeFlag %} <strong> (DELETED)  </strong>{% endif %}</li>
+          <li><a href="/logs/entry/{{ prec.id }}/"> {{ prec.content|linebreaks  }}  at {{ prec.entryDate }}  by {{prec.user}} </a> {% if not prec.activeFlag %} <strong> (DELETED)  </strong>{% endif %}</li>
      {% endfor %}
     </ul>
 
