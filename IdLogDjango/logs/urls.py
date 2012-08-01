@@ -16,5 +16,5 @@ urlpatterns = patterns('logs.views',
     url(r'^categories/$', 'categoryIndex'),
     url(r'^categories/newCategory/$', 'newCategory'),
     url(r'^categories/submitCategory/$', 'submitCategory'),
-    url(r'^categories/categoryEntries/(?P<categoryName>\S+)/$', 'categoryEntries'),
+    url(r'^categories/categoryEntries/(?P<categoryName>[\S\s]+)/$', 'categoryEntries'),
 )
