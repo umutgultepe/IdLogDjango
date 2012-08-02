@@ -23,7 +23,7 @@ def detail(request,entryID,add=None):
     targetEntry = get_object_or_404(LogEntry, id=entryID)
     
     scan_results = LinkScanner.scanLinks(targetEntry.content)
-    
+    print scan_results
     preceeders=Relation.objects.filter(succeeder=targetEntry)
     succeeders=Relation.objects.filter(preceeder=targetEntry)
     

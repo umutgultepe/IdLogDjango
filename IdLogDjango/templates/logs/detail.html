@@ -14,15 +14,22 @@
 <!--	<li>Content		: {{ entry.content|linebreaks  }}</li> -->
 	<li>Content 	: <br>
 		{% for content_str in scan_results.0 %}
+			{% if not forloop.counter0|divisibleby:"2" %}
+	 			<a href="{{ content_str }}" target="_blank">{{content_str|linebreaks}}</a>
+	 		{% else %}
+	 			{{ content_str|linebreaks }}
+			{% endif %}
+{% comment %}
 			{% for is_link in scan_results.1 %}
 			 	{% if forloop.parentloop.counter0 == forloop.counter0 %}
 			 		{% if is_link %}
-			 			<a href="{{ content_str }}" target="_blank">{{content_str|linebreaks}}</a>
+						{{ content_str|urlize }}
 			 		{% else %}
 			 			{{content_str|linebreaks}}
 					{% endif %}
 				{% endif %}
 			{% endfor %}
+{% endcomment %}
 		{% endfor %}
 	</li>
 	<li>Entry date  : {{ entry.entryDate }}</li>
