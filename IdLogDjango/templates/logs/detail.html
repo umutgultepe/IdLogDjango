@@ -15,9 +15,9 @@
 	<li>Content 	: <br>
 		{% for content_str in scan_results.0 %}
 			{% if not forloop.counter0|divisibleby:"2" %}
-	 			<a href="{{ content_str }}" target="_blank">{{content_str|linebreaks}}</a>
+	 			<a href="{{ content_str }}" target="_blank">{{content_str|linebreaksbr|force_escape}}</a>
 	 		{% else %}
-	 			{{ content_str|linebreaks }}
+	 			{{ content_str|linebreaksbr }}
 			{% endif %}
 {% comment %}
 			{% for is_link in scan_results.1 %}
