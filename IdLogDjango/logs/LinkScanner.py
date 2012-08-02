@@ -63,9 +63,12 @@ def stripLink(content):
 		striplist.append(content)
 		return striplist
 	else: 
-		if(start_end[0] == 0):
+		if(start_end[0] == 0): #if content starts with link
 			striplist.append('')
-		if(start_end[1] == len(content)):
+			if(start_end[1] == len(content)): #if content starts and ends with link
+				striplist.append(content)
+				return striplist
+		if(start_end[1] == len(content)): #if content ends with link
 			striplist.append(content[:start_end[0]])
 			striplist.append(content[start_end[0]:start_end[1]])
 		else:
@@ -119,7 +122,7 @@ def scanLinks(content):
 	return [linksList, isLink]
 
 if __name__ == '__main__':
-	content = """www.0.com text http://www.1.com text1 text2"""
+	content = """www.0.com www.1.com"""
 
 	scanresults = scanLinks(content)
 	print str(scanresults[0])+'\n'+str(scanresults[1])
