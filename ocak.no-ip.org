@@ -1,0 +1,75 @@
+
+<VirtualHost *:443>
+
+	ServerName ocak.no-ip.org
+	DocumentRoot /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango
+
+	Alias /static/ /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango/staticfiles/	
+	
+
+	<Directory /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango>
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+        <Directory /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango/staticfiles>
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        <Directory /home/umutgultepe/python_django/lib/python2.7/site-packages/django/contrib/admin/static>
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+
+	WSGIDaemonProcess ocak.no-ip.org.secure python-path=/home/umutgultepe/python_django/lib/python2.7/site-packages user=umutgultepe processes=2 threads=15 display-name=%{GROUP}
+	WSGIProcessGroup ocak.no-ip.org.secure
+
+	WSGIScriptAlias / /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango/apache/django.wsgi
+
+	SSLEngine On
+	SSLCertificateFile /etc/apache2/ssl/apache.pem
+
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerAdmin alpsayin@gmail.com
+    ServerName ocak.no-ip.org
+
+    HostnameLookups Off
+    UseCanonicalName On
+    ServerSignature Off
+
+    Redirect / https://ocak.no-ip.org/
+</VirtualHost>
+
+# <VirtualHost *:80>
+
+# 	ServerName ocak.no-ip.org
+# 	DocumentRoot /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango
+
+# 	Alias /static/ /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango/staticfiles/	
+	
+
+# 	<Directory /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango>
+# 		Order allow,deny
+# 		Allow from all
+# 	</Directory>
+
+#         <Directory /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango/staticfiles>
+#                 Order allow,deny
+#                 Allow from all
+#         </Directory>
+
+#         <Directory /home/umutgultepe/python_django/lib/python2.7/site-packages/django/contrib/admin/static>
+#                 Order allow,deny
+#                 Allow from all
+#         </Directory>
+
+# 	WSGIDaemonProcess ocak.no-ip.org python-path=/home/umutgultepe/python_django/lib/python2.7/site-packages user=umutgultepe processes=2 threads=15 display-name=%{GROUP}
+# 	WSGIProcessGroup ocak.no-ip.org
+
+# 	WSGIScriptAlias / /home/umutgultepe/djangoSites/IdLogDjango/IdLogDjango/apache/django.wsgi
+
+# </VirtualHost>
