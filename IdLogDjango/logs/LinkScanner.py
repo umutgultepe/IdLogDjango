@@ -1,5 +1,9 @@
 #!/bin/usr/env python
 
+
+www = 'www.'
+http = 'http'
+	
 def findLink(content):
 	"""
 	findLink(content):
@@ -10,9 +14,7 @@ def findLink(content):
 			the start and end indexes of the first found link.
 			If no link is found then, an empty list is returned	
 	"""
-	www = 'www.'
 	windex = 0 
-	http = 'http'
 	httpindex = 0
 	start_end = []
 	for i in range(len(content)):
@@ -23,8 +25,10 @@ def findLink(content):
 				for j in range(i, len(content)):
 					if(content[j].isspace()):
 						start_end.append(j)
+						start_end.append(www)
 						return start_end
 				start_end.append(j+1)
+				start_end.append(www)
 				return start_end
 		else:
 			windex=0
@@ -35,11 +39,14 @@ def findLink(content):
 				for j in range(i, len(content)):
 					if(content[j].isspace()):
 						start_end.append(j)
+						start_end.append(http)
 						return start_end
 				start_end.append(j+1)
+				start_end.append(http)
 				return start_end
 		else:
 			httpindex=0
+			
 	return start_end
 
 def stripLink(content):
@@ -64,17 +71,25 @@ def stripLink(content):
 		return striplist
 	else: 
 		if(start_end[0] == 0): #if content starts with link
-			striplist.append('')
+			striplist.append('') #append empty string to beginning
 			if(start_end[1] == len(content)): #if content starts and ends with link
-				striplist.append(content)
+				if(start_end[2] == www): #if the match is a www append a http:// to the beginning of the link
+					content = 'http://'+content
+				striplist.append(content) #append the link itself
 				return striplist
 		if(start_end[1] == len(content)): #if content ends with link
-			striplist.append(content[:start_end[0]])
-			striplist.append(content[start_end[0]:start_end[1]])
+			striplist.append(content[:start_end[0]]) #append the non-link
+			link = content[start_end[0]:start_end[1]]
+			if(start_end[2] == www): #if the match is a www append a http:// to the beginning of the link
+				link = 'http://'+link
+			striplist.append(link) #append the link
 		else:
 			if(start_end[0] != 0):
 				striplist.append(content[:start_end[0]])
-			striplist.append(content[start_end[0]:start_end[1]])
+			link = content[start_end[0]:start_end[1]]
+			if(start_end[2] == www): #if the match is a www append a http:// to the beginning of the link
+				link = 'http://'+link
+			striplist.append(link)
 			striplist.append(content[start_end[1]:])
 
 	return striplist

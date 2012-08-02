@@ -11,7 +11,20 @@
 <ul class="list2">
 
 	<li>Belongs in  : <a href="/logs/categories/categoryEntries/{{ entry.category }}">{{ entry.category }}</a></li>
-	<li>Content		: {{ entry.content|linebreaks  }}</li>
+<!--	<li>Content		: {{ entry.content|linebreaks  }}</li> -->
+	<li>Content 	: <br>
+		{% for content_str in scan_results.0 %}
+			{% for is_link in scan_results.1 %}
+			 	{% if forloop.parentloop.counter0 == forloop.counter0 %}
+			 		{% if is_link %}
+			 			<a href="{{ content_str }}" target="_blank">{{content_str|linebreaks}}</a>
+			 		{% else %}
+			 			{{content_str|linebreaks}}
+					{% endif %}
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+	</li>
 	<li>Entry date  : {{ entry.entryDate }}</li>
 	<li>User		: {{ entry.user }}</li>
 	<li>Is Active?	: {{ entry.activeFlag }}</li>

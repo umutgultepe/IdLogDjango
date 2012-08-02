@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from logs.models import LogEntry, Category, Relation
+import LinkScanner
 
 def index(request,additionalInfo=None):
     if check_if_anonymous(request):
@@ -20,6 +21,8 @@ def detail(request,entryID,add=None):
         return HttpResponseRedirect(reverse('logs.views.anonymous'))
     
     targetEntry = get_object_or_404(LogEntry, id=entryID)
+    
+    scan_results = LinkScanner.scanLinks(targetEntry.content)
     
     preceeders=Relation.objects.filter(succeeder=targetEntry)
     succeeders=Relation.objects.filter(preceeder=targetEntry)
@@ -37,9 +40,9 @@ def detail(request,entryID,add=None):
     categories=Category.objects.all()
     
     if add is None:
-        return render_to_response('logs/detail.html', {'entry': targetEntry, 'preceeders': precList, 'succeeders': succList, 'cats':categories},context_instance=RequestContext(request))
+        return render_to_response('logs/detail.html', {'entry': targetEntry, 'scan_results':scan_results, 'preceeders': precList, 'succeeders': succList, 'cats':categories},context_instance=RequestContext(request))
     else:
-        return render_to_response('logs/detail.html', {'entry': targetEntry, 'preceeders': precList, 'succeeders': succList, 'cats':categories, 'additionalInfo': add},context_instance=RequestContext(request))
+        return render_to_response('logs/detail.html', {'entry': targetEntry, 'scan_results':scan_results, 'preceeders': precList, 'succeeders': succList, 'cats':categories, 'additionalInfo': add},context_instance=RequestContext(request))
     
 def modifyEntry(request,entryID):
     if check_if_anonymous(request):
