@@ -63,7 +63,7 @@
 {% csrf_token %}
 <div  class="textarea_box">
 	<div class="bg">
-		<textarea rows="5" cols="50"  name="content"  onclick="this.value = ''">Quick Entry.</textarea>
+		<textarea rows="5" cols="50"  name="content"  onclick="this.value = textChange(this.value)">-Quick Entry.</textarea>
 	</div>
 </div>		
 <select name="category" id="categ">

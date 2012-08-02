@@ -1,2 +1,6 @@
 
 *.pyc
+
+IdLogDjango/.DS_Store
+
+IdLogDjango/templates/.DS_Store
