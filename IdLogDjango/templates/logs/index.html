@@ -61,9 +61,23 @@
 
 <form id="Form" action="/logs/submitEntry/" method="post">
 {% csrf_token %}
+
+<script type="text/javascript">
+var a = 0;
+function textMod(txt)
+{
+  var result = "";
+  if (a==0)
+    a = 1;
+  else
+    result = txt;
+  return result;
+}
+</script>
+
 <div  class="textarea_box">
 	<div class="bg">
-		<textarea rows="5" cols="50"  name="content"  onclick="this.value = textChange(this.value)">-Quick Entry.</textarea>
+		<textarea rows="5" cols="50"  name="content"  onclick="this.value = textMod(this.value)">Quick Entry.</textarea>
 	</div>
 </div>		
 <select name="category" id="categ">
