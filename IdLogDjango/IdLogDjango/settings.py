@@ -3,8 +3,9 @@
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-STATIC_BASE_DIRECTORY='C:\\Users\\Alp Sayin\git\\IdLogDjango\\'
+#STATIC_BASE_DIRECTORY='C:\\Users\\Alp Sayin\git\\IdLogDjango\\'
 #STATIC_BASE_DIRECTORY='/home/umut/git/IdLogDjango/'
+STATIC_BASE_DIRECTORY='/home/alpsayin/git/IdLogDjango/'
 
 
 ADMINS = (
@@ -18,7 +19,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'idlogdjango_test',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
+        'USER': 'idlogdjango_test',                      # Not used with sqlite3.
         'PASSWORD': '123456',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
