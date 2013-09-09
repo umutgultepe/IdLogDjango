@@ -21,7 +21,7 @@ DATABASES = {
         'NAME': 'idlogdjango_test',                      # Or path to database file if using sqlite3.
         'USER': 'idlogdjango_test',                      # Not used with sqlite3.
         #'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': '123456',                  # Not used with sqlite3.
+        'PASSWORD': 'idlogdjango_test_',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
