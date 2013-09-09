@@ -100,6 +100,20 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.request",
+    "allauth.account.context_processors.account",
+    "allauth.socialaccount.context_processors.socialaccount",
+)
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    "django.contrib.auth.backends.ModelBackend",
+    # `allauth` specific authentication methods, such as login by e-mail
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
 MIDDLEWARE_CLASSES = (
     #'middleware.SSLRedirect.SSLRedirect',
     'django.middleware.common.CommonMiddleware',
@@ -136,7 +150,14 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'logs',
     'south',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.twitter',
 )
+
+#allauth settings
+ACCOUNT_AUTHENTICATION_METHOD='username_email'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

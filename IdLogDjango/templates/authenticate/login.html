@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load socialaccount %}
+
 
 {% block title %}Log In{% endblock %}
 {% block header %}Log In{% endblock %}
@@ -26,5 +28,7 @@
 
 <input type="submit" class="button" value="Log In" />
 </form>
+
+<a href="{% provider_login_url 'twitter' next='/logs/' %}">Twitter</a>
 
 {% endblock %}
