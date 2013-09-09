@@ -5,11 +5,11 @@ TEMPLATE_DEBUG = DEBUG
 
 #STATIC_BASE_DIRECTORY='C:\\Users\\Alp Sayin\git\\IdLogDjango\\'
 #STATIC_BASE_DIRECTORY='/home/umut/git/IdLogDjango/'
-STATIC_BASE_DIRECTORY='/home/alpsayin/git/IdLogDjango/'
-
+#STATIC_BASE_DIRECTORY='/home/alpsayin/git/IdLogDjango/'
+STATIC_BASE_DIRECTORY='/Users/alpsayin/django-idlog/IdLogDjango/IdLogDjango/'
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+    # ('Alp Sayin', 'alpsayin@github'),
 )
 
 MANAGERS = ADMINS
@@ -68,7 +68,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = ''
+STATIC_ROOT = STATIC_BASE_DIRECTORY+'static'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -79,7 +79,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    STATIC_BASE_DIRECTORY+'IdLogDjango/staticfiles',
+    STATIC_BASE_DIRECTORY+'staticfiles',
 )
 
 # List of finder classes that know how to find static files in
@@ -120,7 +120,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    STATIC_BASE_DIRECTORY+'IdLogDjango/templates', # Change this to your own directory.
+    STATIC_BASE_DIRECTORY+'templates', # Change this to your own directory.
 )
 
 INSTALLED_APPS = (

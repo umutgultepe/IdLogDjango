@@ -1,17 +1,18 @@
+{% load staticfiles %}
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html lang="en">
 <head>
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/style.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/layout.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/reset.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/jq.css" media="screen" />
-	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery-1.4.2.js" ></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/cufon-yui.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/cufon-replace.js"></script>  
-	<script type="text/javascript" src="{{ STATIC_URL }}js/Copse_400.font.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/jquery.nivo.slider.pack.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/imagepreloader.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/textchange.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static  'css/style.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static  'css/layout.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static  'css/reset.css' %}" media="screen" />
+	<link rel="stylesheet" type="text/css" href="{% static  'css/jq.css' %}" media="screen" />
+	<script type="text/javascript" src="{% static  'js/jquery-1.4.2.js' %}" ></script>
+	<script type="text/javascript" src="{% static  'js/cufon-yui.js' %}"></script>
+	<script type="text/javascript" src="{% static  'js/cufon-replace.js' %}"></script>  
+	<script type="text/javascript" src="{% static  'js/Copse_400.font.js' %}"></script>
+	<script type="text/javascript" src="{% static  'js/jquery.nivo.slider.pack.js' %}"></script>
+	<script type="text/javascript" src="{% static  'js/imagepreloader.js' %}"></script>
+	<script type="text/javascript" src="{% static  'js/textchange.js' %}"></script>
 	
     <title>{% block title %}IdLog- Django verion By G{% endblock %}</title>
     
