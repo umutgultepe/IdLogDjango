@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2015 Alp Sayin
+Copyright (c) 2015 Umut Gultepe, Alp Sayin, Sarp Ulas Ocak
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
